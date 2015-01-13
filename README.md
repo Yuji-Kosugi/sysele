@@ -7,48 +7,38 @@ modulationディレクトリはBPSK,QPSK,16QAMの変復調を行う。シミュ�
 
 viterbiディレクトリはconvolutionによる符号化とviterbiによる復号化を行う。またC言語との速度の比較を行う。
 
-コンパイル方法は
+コンパイル方法
 
-	./compile.sh
+	iverilog convolution.v viterbi.v viterbisim.v -o viterbiv
+	gcc viterbi.c -o viterbic
 
-Verilogの実行方法は
+Verilogの実行方法
 
 	./viterbiv
 
-シミュレーション方法は
+シミュレーション方法
 
 	gtkwave viterbi.vcd
 
-C言語の実行方法は
+C言語の実行方法
 
 	./viterbic
 
-また
-
-	./delete.sh
-
-によりソースコード以外を削除できる。
-
 fftディレクトリはFFTとIFFTを行う。こちらもC言語との比較を行う。
 
-コンパイル方法は
+コンパイル方法
 
-	./compile.sh
+	iverilog fft64.v ifft64.v fft64sim.v -o fft64v
+	gcc fft64.c -lm -o fft64c
 
-Verilogの実行方法は
+Verilogの実行方法
 
 	./fft64v
 
-シミュレーション方法は
+シミュレーション方法
 
 	gtkwave fft64.vcd
 
-C言語の実行方法は
+C言語の実行方法
 
 	./fft64c
-
-また
-
-	./delete.sh
-
-によりソースコード以外を削除できる。
